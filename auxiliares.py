@@ -11,7 +11,6 @@ def convertir_thumbnail_filmgrab(url_sin_convertir):
     return url_final
 
 def convertir_thumbnail_screenmusings(url_sin_convertir, nombre_archivo):
-    # Agrego %20 y saco el thumb para que la imagen se vea completa.
 
     url_modificada = url_sin_convertir.replace("thumbnails", "images")
     url_final = f"https://screenmusings.org/movie/blu-ray/{nombre_archivo}/{url_modificada}"
