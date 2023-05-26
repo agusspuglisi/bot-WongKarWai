@@ -1,0 +1,24 @@
+name: Publicar tweet
+
+on:
+  schedule:
+    - cron: "23 */11 * * *" 
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10" 
+
+    - name: Install dependencies
+      run: pip install tweepy beautifulsoup4
+
+    - name: Run tweet bot
+      run: python3 main.py --access_token "${{ secrets.ACCESS_TOKEN }}" --access_token_secret "${{ secrets.ACCESS_TOKEN_SECRET }}" --consumer_key "${{ secrets.CONSUMER_KEY }}" --consumer_secret "${{ secrets.CONSUMER_SECRET }}"
