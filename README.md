@@ -2,7 +2,7 @@
 
 Bot de Twitter dedicado al director Wong Kar-Wai. 
 
-La cuenta [@botWongKarwai](https://twitter.com/botWongKarwai) twittea elige películas de películas en [screenmusings](https://screenmusings.org/movie-director/Wong-Kar-Wai/) o [film-grab](https://film-grab.com/category/wong-kar-wai/)) y utiliza la API de Twitter y la biblioteca Tweepy para twittearlas.
+La cuenta [@botWongKarwai](https://twitter.com/botWongKarwai) twittea elige frames de películas en [screenmusings](https://screenmusings.org/movie-director/Wong-Kar-Wai/) o [film-grab](https://film-grab.com/category/wong-kar-wai/)) y utiliza la API de Twitter y la biblioteca Tweepy para twittearlas.
 
 ## Ejecución 
 
