@@ -1,2 +1,9 @@
-# bot-WongKarWai
-Bot de Twitter dedicado al director Wong Kar-Wai. El bot twittea frames de imágenes aleatorias de películas utilizando la API de Twitter y la biblioteca Tweepy.
+# @botWongKarwai :robot: :cinema:
+
+Bot de Twitter dedicado al director Wong Kar-Wai. 
+
+La cuenta [@botWongKarwai](https://twitter.com/botWongKarwai) twittea elige películas de películas en [screenmusings](https://screenmusings.org/movie-director/Wong-Kar-Wai/) o [film-grab](https://film-grab.com/category/wong-kar-wai/)) y utiliza la API de Twitter y la biblioteca Tweepy para twittearlas.
+
+## Ejecución 
+
+El bot está configurado para ejecutarse automáticamente utilizando GitHub Actions. Se programó una tarea cron que se realiza cada cierto tiempo en un archivo yml.
