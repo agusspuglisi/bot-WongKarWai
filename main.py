@@ -24,7 +24,7 @@ def twittear_imagen(consumer_key: str, consumer_secret: str, access_token: str, 
     api = tweepy.API(auth)
 
     # v2.0 api
-    twclient = tweepy.Client(keys.bearer, keys.consumer_key, keys.consumer_secret, keys.access_token, keys.access_token_secret, wait_on_rate_limit=True)
+    twclient = tweepy.Client(bearer, consumer_key, consumer_secret, access_token, access_token_secret, wait_on_rate_limit=True)
     
     url, nombre_pelicula = seleccionar_url()
     response = requests.get(url)
