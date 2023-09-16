@@ -18,7 +18,7 @@ def parseArgs() -> argparse.Namespace:
 
 def twittear_imagen(consumer_key: str, consumer_secret: str, access_token: str, access_token_secret: str, bearer: str):
 
-    # Autenticación en Twitter v1.1 api
+    # Autenticación v1.1 api
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
