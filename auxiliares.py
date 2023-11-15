@@ -2,6 +2,8 @@ import random
 from bs4 import BeautifulSoup
 import requests
 
+
+
 def convertir_thumbnail_filmgrab(url_sin_convertir):
     # Agrego %20 y saco el thumb para que la imagen se vea completa.
 
