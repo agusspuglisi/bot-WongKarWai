@@ -40,7 +40,7 @@ def seleccionar_url():
             'https://film-grab.com/2014/02/17/days-of-being-wild/' : 'Days of Being Wild (1990)',
             'https://film-grab.com/2014/02/21/my-blueberry-nights/' : 'My Blueberry Nights (2007)',
             'https://film-grab.com/2014/02/18/ashes-of-time-redux/' : 'Ashes of Time Redux (1994)',
-            'https://film-grab.com/2014/02/20/2046/' : '2046 (2000)',
+            'https://film-grab.com/2014/02/20/2046/' : '2046 (2004)',
             'https://film-grab.com/2013/03/09/in-the-mood-for-love/' : 'In the Mood for Love (2000)',
             'https://screenmusings.org/movie/blu-ray/Chungking-Express/' : ['Chungking Express (1994)', 'Chungking-Express'], 
             'https://screenmusings.org/movie/blu-ray/Fallen-Angels/' : ['Fallen Angels (1995)', 'Fallen-Angels'],
@@ -65,3 +65,4 @@ def seleccionar_url():
         url_final = convertir_thumbnail_filmgrab(url_a_convertir)
 
     return url_final, nombre_pelicula
+
