@@ -2,7 +2,7 @@ import tweepy
 import argparse
 import requests
 import io
-from auxiliares import seleccionar_url
+from auxiliares import seleccionar_url, NoImagenesDisponibles
 
 # Autenticación en Twitter
 def parseArgs() -> argparse.Namespace:
@@ -26,15 +26,22 @@ def twittear_imagen(consumer_key: str, consumer_secret: str, access_token: str, 
     # v2.0 api
     twclient = tweepy.Client(bearer, consumer_key, consumer_secret, access_token, access_token_secret, wait_on_rate_limit=True)
     
-    url, nombre_pelicula = seleccionar_url()
-    response = requests.get(url)
+    try:
+        url, nombre_pelicula = seleccionar_url()
+    except NoImagenesDisponibles as e:
+        print(f"Error: {e}")
+        return
 
-    if response.status_code == 200:
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        print(f"Error al descargar la imagen: {e}")
+        return
 
-        image_file = io.BytesIO(response.content)
-        media_info = api.media_upload(filename = 'image.jpg', file = image_file)
-
-        twclient.create_tweet(text = nombre_pelicula, media_ids = [media_info.media_id])
+    image_file = io.BytesIO(response.content)
+    media_info = api.media_upload(filename='image.jpg', file=image_file)
+    twclient.create_tweet(text=nombre_pelicula, media_ids=[media_info.media_id])
 
 def main():
     args = parseArgs()
