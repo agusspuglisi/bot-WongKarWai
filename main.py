@@ -40,8 +40,23 @@ def twittear_imagen(consumer_key: str, consumer_secret: str, access_token: str, 
         return
 
     image_file = io.BytesIO(response.content)
-    media_info = api.media_upload(filename='image.jpg', file=image_file)
-    twclient.create_tweet(text=nombre_pelicula, media_ids=[media_info.media_id])
+    try:
+        media_info = api.media_upload(filename='image.jpg', file=image_file)
+    except tweepy.errors.TweepyException as e:
+        print(f"Error al subir la imagen a Twitter: {e}")
+        return
+
+    try:
+        twclient.create_tweet(text=nombre_pelicula, media_ids=[media_info.media_id])
+    except tweepy.errors.Forbidden as e:
+        print(f"Error 403 Forbidden al publicar el tweet.")
+        print(f"Detalle: {e}")
+        print("Posibles causas: permisos de la app insuficientes (necesita 'Read and Write'), "
+              "credenciales incorrectas, o la cuenta está suspendida/restringida.")
+        return
+    except tweepy.errors.TweepyException as e:
+        print(f"Error de Tweepy al publicar el tweet: {e}")
+        return
 
 def main():
     args = parseArgs()
